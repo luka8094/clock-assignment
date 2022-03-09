@@ -1,7 +1,15 @@
 const express = require("express")
+
+const cors = require('cors')
 const app = express()
 
+
+app.use(cors())
+
+
 const fileSystem = require("fs")
+
+
 
 const clockPage = fileSystem.readFileSync("./public/time-assignment.html")
 
