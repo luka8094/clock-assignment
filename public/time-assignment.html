@@ -13,17 +13,30 @@
             box-sizing: border-box;
             margin: 0;
             align-items: center;
+            background-image: url("./public/images/salvadordal-1646947293700-1933.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .clock-shape{
+            height: 500px;
+            width: 500px;
+            background-color: white;
         }
 
         #time-box{
             display: flex;
+            height: 100px;
+            align-items: center;
             font-size: 5rem;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif sans-serif;
         }
 
         #time-colon{
-            animation: blink duration timing-function delay iteration-count direction fill-mode;
-            margin: auto 0 auto 0;
+            animation: blink 1.1s steps(3) infinite;
+            margin-bottom: 15px;
+            color: rgba(0,0,0,1)
         }
 
         @keyframes
@@ -42,11 +55,13 @@
     </style>
 </head>
 <body>
-    <h1>Sup, here's the time right now</h1>
-    <div id="time-box">
-        <div id="hours"></div>
-        <div id="time-colon"></div>
-        <div id="minutes"></div>
+    <h1>Hang on, the time is coming right up...</h1>
+    <div class="clock-shape">
+        <div id="time-box">
+            <div id="hours"></div>
+            <div id="time-colon"></div>
+            <div id="minutes"></div>
+        </div>
     </div>
 
     <script>
