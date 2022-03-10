@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <title>Clock website assignment</title>
     <style>
 
         body{
@@ -19,23 +22,94 @@
             background-attachment: fixed;
         }
 
+        h1{
+            font-family: 'Roboto Slab', serif;
+        }
+
         .clock-shape{
-            height: 500px;
-            width: 500px;
-            background-color: white;
+            display: flex;
+            height: 300px;
+            width: 300px;
+            background-color: whitesmoke;
+            align-items: center;
+            justify-content: center;
+            border-radius: 200px;
+            border: solid 15px lightgrey;
+            overflow: hidden;
+        }
+
+        .line{
+            background-color: rgba(0,0,0,1);
+            width: 300px;
+            height: 5px;
+            position: absolute;
+        }
+
+        .line-1{
+            transform: rotate(90deg);
+        }
+
+        .line-2{
+            transform: rotate(30deg);
+        }
+
+        .line-3{
+            transform: rotate(60deg);
+        }
+
+        .line-4{
+
+        }
+
+        .line-5{
+            
+            transform: rotate(30deg);
+        }
+
+        .line-6{
+            transform: rotate(-30deg);
+        }
+
+        .line-7{
+            transform: rotate(-60deg);
+        }
+
+        .clock-lines-container{
+            height: 300px;
+            width: 300px;
+            border: dashed;
+            justify-content: center;
+            display: contents;
+        }
+
+        .upper-clock-layer{
+            display: flex;
+            position: absolute;
+            background-color: whitesmoke;
+            height: 250px;
+            width: 250px;
+            border-radius: 200px;
+            align-items: center;
+            justify-content: center;
         }
 
         #time-box{
-            display: flex;
-            height: 100px;
+            display: none;
+            height: 70px;
             align-items: center;
-            font-size: 5rem;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif sans-serif;
+            justify-items: center;
+            font-size: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 300;
+            background-color: white;
+            border-radius: 10px;
+            padding: 0.1em;
         }
+    
 
         #time-colon{
             animation: blink 1.1s steps(3) infinite;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             color: rgba(0,0,0,1)
         }
 
@@ -56,12 +130,27 @@
 </head>
 <body>
     <h1>Hang on, the time is coming right up...</h1>
+    <div class="top"></div>
+    <div class="side"></div>
     <div class="clock-shape">
-        <div id="time-box">
+       
+        <div class="clock-lines-container">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+            <div class="line line-4"></div>
+            <div class="line line-5"></div>
+            <div class="line line-6"></div>
+            <div class="line line-7"></div>
+        </div>
+        <div class="upper-clock-layer">
+            <div id="time-box">
             <div id="hours"></div>
             <div id="time-colon"></div>
             <div id="minutes"></div>
+            </div>
         </div>
+       
     </div>
 
     <script>
@@ -105,6 +194,9 @@
         setTimeout( () => {
 
             setInterval( () => {
+
+                
+                timeBoxHtmlElement.style.display = "flex"
 
                 let  date = new Date()
 
